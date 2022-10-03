@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
+import AuthenticatedApp from 'AuthenticatedApp';
 import UnauthenticatedApp from 'UnauthenticatedApp';
 
 import { Theme } from 'theme';
@@ -20,11 +21,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+// Validação falsa implementada apenas para teste
+const user = true;
+
 const App = () => {
   return (
     <Theme>
       <GlobalStyle />
-      <Router>{<UnauthenticatedApp />}</Router>
+      <Router>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Router>
     </Theme>
   );
 };
