@@ -7,3 +7,12 @@ export const loginSchema = yupShapeWithResolver({
   email: yup.string().email('Insira um e-mail válido').required(),
   password: yup.string().min(6, 'Mínimo de 6 caracteres no campo').required()
 });
+
+export const addNaverSchema = yupShapeWithResolver({
+  name: yup.string().min(2, 'Mínimo de 2 caracteres no campo').required(),
+  idade: yup.number().required(),
+  projetosQueParticipou: yup.number(),
+  cargo: yup.string().min(3, 'Mínimo de 3 caracteres no campo').required(),
+  tempoDeEmpresa: yup.string().required(),
+  urlFoto: yup.string().url()
+});
