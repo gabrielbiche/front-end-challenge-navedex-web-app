@@ -21,6 +21,7 @@ const InputComponent = ({ label, name, placeholder, error, type, ...props }) => 
 };
 
 const Input = styled.input`
+  width: 280px;
   height: 40px;
   border: 1px solid black;
   padding: 4px 8px;
