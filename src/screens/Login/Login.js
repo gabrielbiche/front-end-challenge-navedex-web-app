@@ -16,7 +16,6 @@ const Login = () => {
   return (
     <Column
       onSubmit={handleSubmit(onSubmit)}
-      verticalAling='center'
       width={448}
       height={408}
       top={0}
@@ -37,8 +36,7 @@ const Login = () => {
         label='E-mail'
         placeholder='E-mail'
         error={errors.email?.message}
-        width={384}
-        mb={32}
+        variant='primary'
       />
       <Input
         name='password'
@@ -46,8 +44,7 @@ const Login = () => {
         label='Senha'
         placeholder='Senha'
         error={errors.email?.password}
-        width={384}
-        mb={32}
+        variant='primary'
       />
       <Button onClick={() => onSubmit()} width={384} mb={32}>
         Entrar
