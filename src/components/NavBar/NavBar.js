@@ -20,6 +20,7 @@ const NavBar = styled.div`
   display: flex;
   position: absolute;
   align-items: center;
+  z-index: 1;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.colors.white};
 `;
