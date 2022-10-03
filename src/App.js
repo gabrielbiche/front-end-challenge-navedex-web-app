@@ -1,4 +1,7 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+
+import UnauthenticatedApp from 'UnauthenticatedApp';
 
 import { Theme } from 'theme';
 
@@ -21,7 +24,7 @@ const App = () => {
   return (
     <Theme>
       <GlobalStyle />
-      <h1>Hello!</h1>
+      <Router>{<UnauthenticatedApp />}</Router>
     </Theme>
   );
 };
