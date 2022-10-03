@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { Home } from 'screens';
+import { Home, AddNaver, EditNaver } from 'screens';
 
 const AuthenticatedApp = () => {
   return (
@@ -8,6 +8,8 @@ const AuthenticatedApp = () => {
       <Route path='*' element={<Navigate to='/home' />} />
 
       <Route path='/home' element={<Home />} />
+      <Route path='/add-naver' element={<AddNaver />} />
+      <Route path='/edit-naver' element={<EditNaver />} />
     </Routes>
   );
 };
