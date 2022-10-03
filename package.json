@@ -1,16 +1,9 @@
 {
-  "name": "navedex-web-app",
+  "name": "navedex-web",
+  "description": "Navedex web app project, technical test by Nave.rs.",
+  "author": "Gabriel da Silva Bichê",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
@@ -34,5 +27,23 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
+    "axios": "^0.27.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1",
+    "react-router-dom": "^6.4.1",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "styled-system": "^5.1.5",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
+    "web-vitals": "^2.1.4"
   }
 }
