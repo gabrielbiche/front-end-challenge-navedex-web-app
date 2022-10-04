@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { Column, NavBar, Row, Text, Arrow, Input, Button } from 'components';
+import { Column, NavBar, Row, Text, Link, Arrow, Input, Button } from 'components';
 import { addNaverSchema } from 'helpers/yupSchemas';
 
 const AddNaver = () => {
@@ -26,7 +26,9 @@ const AddNaver = () => {
         position='absolute'
       >
         <Row alignItems='center'>
-          <Arrow />
+          <Link to='/home'>
+            <Arrow />
+          </Link>
           <Text fontSize={24} fontWeight={600} ml={22.49}>
             Adicionar Naver
           </Text>

@@ -7,7 +7,9 @@ const NavBarComponent = () => {
   return (
     <Row top={0}>
       <NavBar>
-        <Image src={logo} atl='logo' width={145.12} height={37} ml={32} />
+        <Link to='/home'>
+          <Image src={logo} atl='logo' width={145.12} height={37} ml={32} />
+        </Link>
         <Link to={'/logout'} label='Sair' fontSize={14} fontWeight={600} mr={32} />
       </NavBar>
     </Row>
