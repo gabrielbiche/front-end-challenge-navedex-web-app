@@ -44,6 +44,7 @@
     "@types/react": "^18.0.21",
     "eslint": "^8.24.0",
     "eslint-plugin-react": "^7.31.8",
+    "react-query": "^3.39.2",
     "web-vitals": "^2.1.4"
   }
 }
