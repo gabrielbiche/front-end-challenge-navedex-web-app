@@ -1,20 +1,25 @@
+/* eslint-disable */
 import { useForm } from 'react-hook-form';
 
-import { Column, Image, Input, Button } from 'components';
+import { Column, Image, Button, Input } from 'components';
 import { loginSchema } from 'helpers/yupSchemas';
+import { useUser } from 'context/userContext';
 import logo from 'assets/logo/logo.svg';
 
 const Login = () => {
+  const { login } = useUser();
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm({ resolver: loginSchema });
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => login(data.email, data.password);
 
   return (
     <Column
+      as='form'
       onSubmit={handleSubmit(onSubmit)}
       width={448}
       height={408}
@@ -29,24 +34,35 @@ const Login = () => {
       borderStyle='solid'
       borderColor='primary.main'
     >
-      <Image src={logo} atl='logo' width={235.34} height={60} mx={106} my={40} />
+      <Image 
+        src={logo} 
+        atl='logo' 
+        width={235.34} 
+        height={60} 
+        mx={106} 
+        my={40} 
+      />
       <Input
         name='email'
-        ref={register}
         label='E-mail'
         placeholder='E-mail'
+        type='email'
+        ref='ref'
+        {...register('email')}
         error={errors.email?.message}
         variant='primary'
       />
       <Input
         name='password'
-        ref={register}
         label='Senha'
         placeholder='Senha'
-        error={errors.email?.password}
+        type='password'
+        ref='ref'
+        {...register('password')}
+        error={errors.password?.message}
         variant='primary'
       />
-      <Button onClick={() => onSubmit()} width={384} mb={32}>
+      <Button type='submit' width={384} mb={32}>
         Entrar
       </Button>
     </Column>
