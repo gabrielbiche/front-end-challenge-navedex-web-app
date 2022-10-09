@@ -1,10 +1,10 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
+import { Theme } from 'theme';
 import AuthenticatedApp from 'AuthenticatedApp';
 import UnauthenticatedApp from 'UnauthenticatedApp';
-
-import { Theme } from 'theme';
+import { useUser } from 'context/userContext';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -21,10 +21,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-// Validação falsa implementada apenas para teste
-const user = true;
-
 const App = () => {
+  const { user } = useUser();
+
   return (
     <Theme>
       <GlobalStyle />
