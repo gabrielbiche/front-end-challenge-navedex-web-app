@@ -15,7 +15,10 @@ const Login = () => {
     formState: { errors }
   } = useForm({ resolver: loginSchema });
 
-  const onSubmit = data => login(data.email, data.password);
+  const onSubmit = async data => {
+    const validUser = await login(data.email, data.password);
+    if (!validUser) alert('Usuário e/ou senha invalído(s)');
+  };
 
   return (
     <Column
