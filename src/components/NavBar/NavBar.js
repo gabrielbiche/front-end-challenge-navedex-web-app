@@ -10,7 +10,7 @@ const NavBarComponent = () => {
   return (
     <Row top={0}>
       <NavBar>
-        <Link to='/home'>
+        <Link to='/navers'>
           <Image src={logo} atl='logo' width={145.12} height={37} ml={32} />
         </Link>
         <Link 
@@ -21,7 +21,7 @@ const NavBarComponent = () => {
 };
 
 const NavBar = styled.div`
-  width: 1280px;
+  max-width: 1280px;
   height: 85px;
   left: 0px;
   right: 0px;
