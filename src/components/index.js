@@ -6,5 +6,6 @@ export * from './Image';
 export * from './Input';
 export * from './Link';
 export * from './NavBar';
+export * from './Rocket';
 export * from './Row';
 export * from './Text';
