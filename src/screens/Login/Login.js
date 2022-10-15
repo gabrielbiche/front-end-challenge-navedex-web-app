@@ -1,13 +1,14 @@
-/* eslint-disable */
 import { useForm } from 'react-hook-form';
+import { useMutation } from 'react-query';
 
-import { Column, Image, Button, Input } from 'components';
+import { Column, Image, Button, Input, Text, Row } from 'components';
 import { loginSchema } from 'helpers/yupSchemas';
 import { useUser } from 'context/userContext';
 import logo from 'assets/logo/logo.svg';
 
 const Login = () => {
-  const { login } = useUser();
+  const { loginContext } = useUser();
+  const { mutate: login, isError } = useMutation(loginContext);
 
   const {
     register,
@@ -15,15 +16,10 @@ const Login = () => {
     formState: { errors }
   } = useForm({ resolver: loginSchema });
 
-  const onSubmit = async data => {
-    const validUser = await login(data.email, data.password);
-    if (!validUser) alert('Usuário e/ou senha invalído(s)');
-  };
-
   return (
     <Column
       as='form'
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(login)}
       width={448}
       height={408}
       top={0}
@@ -37,14 +33,14 @@ const Login = () => {
       borderStyle='solid'
       borderColor='primary.main'
     >
-      <Image 
-        src={logo} 
-        atl='logo' 
-        width={235.34} 
-        height={60} 
-        mx={106} 
-        my={40} 
-      />
+      <Image src={logo} atl='logo' width={235.34} height={60} mx={106} my={40} />
+      {isError ? (
+        <Row position='absolute' color='red' mt={110}>
+          <Text>E-mail e/ou senha inválido(s)</Text>
+        </Row>
+      ) : (
+        ''
+      )}
       <Input
         name='email'
         label='E-mail'
@@ -65,9 +61,7 @@ const Login = () => {
         error={errors.password?.message}
         variant='primary'
       />
-      <Button type='submit' width={384} mb={32}>
-        Entrar
-      </Button>
+      <Button type='submit' width={384} mb={32}>Entrar</Button>
     </Column>
   );
 };
