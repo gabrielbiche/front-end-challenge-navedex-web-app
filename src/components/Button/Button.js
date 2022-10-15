@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { space, layout } from 'styled-system';
+import { space, layout, position } from 'styled-system';
 
 const ButtonComponents = ({ children, ...props }) => <Button {...props}>{children}</Button>;
 
@@ -13,7 +13,8 @@ const Button = styled('button')(
     background: ({ theme }) => theme.colors.primary.main
   },
   space,
-  layout
+  layout,
+  position
 );
 
 export default ButtonComponents;
