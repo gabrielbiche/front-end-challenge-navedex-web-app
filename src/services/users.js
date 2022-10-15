@@ -1,5 +1,5 @@
 import { client } from 'providers';
 
-export const getMe = () => client.get('/v1/me');
+export const getUser = () => client.get('/v1/me');
 
-export const login = (email, password) => client.post('/users/login', { email, password });
+export const login = data => client.post('/v1/users/login', data);
