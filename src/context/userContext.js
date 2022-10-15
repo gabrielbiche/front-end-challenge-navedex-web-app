@@ -1,12 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-import { login as loginService, getMe } from 'services';
+import { login as loginService, getUser } from 'services';
 import { client } from 'providers';
-import {
-  setToken,
-  getToken,
-  clearToken,
-} from 'helpers';
+import { setToken, getToken, clearToken } from 'helpers';
 
 const UserContext = createContext();
 
@@ -24,13 +20,13 @@ const UserProvider = props => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchUser = () => {
+    const fetchUser = async () => {
       const token = getToken();
       try {
         if (token) {
           client.defaults.headers.Authorization = `Bearer ${token}`;
-          const loggedUser = getMe();
-          setUser(loggedUser);
+          const { data } = await getUser();
+          return setUser(data);
         }
       } catch (error) {
         console.log('error', error);
@@ -40,24 +36,15 @@ const UserProvider = props => {
     fetchUser();
   }, []);
 
-  const login = async (email, password) => {
-    try {
-      const { data } = await loginService(email, password);
-      const loggedUser = { id: data.id, email: data.email };
-      const token = data.token;
+  const loginContext = async (email, password) => {
+    const { data } = await loginService(email, password);
+    const loggedUser = { id: data.id, email: data.email };
+    const token = data.token;
 
-      setUser(loggedUser);
-      setToken(token);
+    setUser(loggedUser);
+    setToken(token);
 
-      client.defaults.headers.Authorization = `Bearer ${token}`;
-
-      return true;
-    
-    } catch (error) {
-      console.log('error', error);
-      
-      return false;
-    }
+    client.defaults.headers.Authorization = `Bearer ${token}`;
   };
 
   const logout = () => {
@@ -65,7 +52,7 @@ const UserProvider = props => {
     setUser(null);
   };
 
-  return <UserContext.Provider value={{ user, login, logout }} {...props} />;
+  return <UserContext.Provider value={{ user, loginContext, logout }} {...props} />;
 };
 
 export { useUser, UserProvider };
