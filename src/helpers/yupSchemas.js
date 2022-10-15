@@ -9,10 +9,22 @@ export const loginSchema = yupShapeWithResolver({
 });
 
 export const addNaverSchema = yupShapeWithResolver({
-  name: yup.string().min(2, 'Mínimo de 2 caracteres no campo').required(),
-  idade: yup.number().required(),
-  projetosQueParticipou: yup.number(),
-  cargo: yup.string().min(3, 'Mínimo de 3 caracteres no campo').required(),
-  tempoDeEmpresa: yup.string().required(),
-  urlFoto: yup.string().url()
+  name: yup.string().min(3, 'Mínimo de 3 caracteres no campo'),
+  birthdate: yup
+    .string()
+    .matches(
+      /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/,
+      'Insira uma data válida'
+    )
+    .required(),
+  project: yup.string().min(3, 'Mínimo de 3 caracteres no campo'),
+  job_role: yup.string().min(3, 'Mínimo de 3 caracteres no campo'),
+  admission_date: yup
+    .string()
+    .matches(
+      /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/,
+      'Insira uma data válida'
+    )
+    .required(),
+  url: yup.string().url()
 });
