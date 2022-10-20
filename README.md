@@ -4,7 +4,7 @@
 O sistema consiste em um web app para criação e visualização de navers, possuindo informações como: nomes, idades, cargos, tempo de empresa e projetos que participou.
 
 ## API
-A documentação de teste oficial da API pode se utilizada com **Postman** e está disponível na raiz do projeto. A API pode ser encontrada [**aqui**](https://navedex-api.herokuapp.com/v1/), após realizar a importação da documentação faça seu cadastro utilizando a request de ``` users/signup ```.
+A documentação de teste oficial da API pode se utilizada com **Postman** e está disponível na raiz do projeto. A API pode ser encontrada [**aqui**](https://navedex-api.herokuapp.com/v1/), após realizar a importação da documentação Postman faça seu cadastro utilizando email e senha na request ``` users/signup ```.
 
 ## Tecnologias utilizadas
 React com JavaScript, Styled Components, Styled System e axios.
@@ -34,6 +34,7 @@ npm run start
 ├── /src
 |   ├── /assets
 |   ├── /components
+|   ├── /context
 |   ├── /helpers
 |   ├── /providers
 |   ├── /screens
