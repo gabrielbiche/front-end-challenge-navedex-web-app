@@ -6,10 +6,6 @@ const styles = {
       main: '#212121'
     },
   },
-  fontWeights: {
-    regular: '400',
-    semiBold: '600'
-  },
   sizes: {
     regular: '176',
     small: '40'
