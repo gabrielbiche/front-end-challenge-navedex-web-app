@@ -1,5 +1,9 @@
 import { client } from 'providers';
-import { formatDateFromApi } from 'helpers';
+import { 
+  formatDateFromApi, 
+  formatPeriodInYears, 
+  formatPeriodInYearsAndMonths
+} from 'helpers';
 
 export const getNavers = async () => {
   try {
@@ -43,7 +47,8 @@ export const removeNaver = async id => {
 export const getNaver = params => {
   if (typeof params === 'string') {
     const id = params;
-    return getNaverById(id);
+    const countsYearsAndMonth = true;
+    return getNaverById(id, countsYearsAndMonth);
   } else {
     const { queryKey } = params;
     const id = queryKey[1];
@@ -51,13 +56,17 @@ export const getNaver = params => {
   }
 };
 
-const getNaverById = async id => {
+const getNaverById = async (id, countsYearsAndMonth) => {
   try {
     const { data } = await client.get(`/v1/navers/${id}`);
     return {
       ...data,
-      birthdate: formatDateFromApi(data.birthdate),
-      admission_date: formatDateFromApi(data.admission_date)
+      birthdate: countsYearsAndMonth
+        ? formatPeriodInYears(data.birthdate)
+        : formatDateFromApi(data.birthdate),
+      admission_date: countsYearsAndMonth
+        ? formatPeriodInYearsAndMonths(data.admission_date)
+        : formatDateFromApi(data.admission_date)
     };
   } catch (error) {
     return console.log(`Error ${error}`);
