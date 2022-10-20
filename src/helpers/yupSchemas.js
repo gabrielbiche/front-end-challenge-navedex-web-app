@@ -26,5 +26,5 @@ export const addNaverSchema = yupShapeWithResolver({
       'Insira uma data válida'
     )
     .required(),
-  url: yup.string().url()
+  url: yup.string().url('Insira uma URL válida').required('Insira uma URL')
 });
