@@ -5,6 +5,7 @@ export * from './Icon';
 export * from './Image';
 export * from './Input';
 export * from './Link';
+export * from './Modal';
 export * from './NavBar';
 export * from './Rocket';
 export * from './Row';
