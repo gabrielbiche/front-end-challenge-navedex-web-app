@@ -11,10 +11,9 @@ const NavBarComponent = () => {
     <Row top={0}>
       <NavBar>
         <Link to='/navers'>
-          <Image src={logo} atl='logo' width={145.12} height={37} ml={32} />
+          <Image src={logo} atl='Logo Nave.rs' width={145.12} height={37} ml={32} />
         </Link>
-        <Link 
-          to={'/login'} onClick={logout} label='Sair' fontSize={14} fontWeight={600} mr={32} />
+        <Link to={'/login'} onClick={logout} label='Sair' fontSize={14} fontWeight={600} mr={32} />
       </NavBar>
     </Row>
   );
