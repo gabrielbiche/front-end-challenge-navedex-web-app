@@ -1,20 +1,30 @@
 import styled from 'styled-components';
-import { space, layout, position } from 'styled-system';
+import { space, layout, position, variant } from 'styled-system';
 
 const ButtonComponents = ({ children, ...props }) => <Button {...props}>{children}</Button>;
 
-const Button = styled('button')(
-  {
-    fontSize: '14',
-    fontWeight: ({ theme }) => theme.fontWeights.semiBold,
-    width: ({ theme }) => `${theme.sizes.regular}px`,
-    height: ({ theme }) => `${theme.sizes.small}px`,
-    color: ({ theme }) => theme.colors.white,
-    background: ({ theme }) => theme.colors.primary.main
-  },
-  space,
-  layout,
-  position
-);
+const Button = styled.button`
+  font-size: 14px;
+  font-weight: 600;
+  width: 176px;
+  height: 40px;
+  color: white;
+  background: #212121;
+  ${space}
+  ${layout}
+  ${position}
+  ${variant({
+    variants: {
+      primary: {
+        bg: 'white',
+        color: '#212121',
+        fontWeight: 600,
+        border: '1px',
+        borderStyle: 'solid',
+        borderColor: '#212121'
+      }
+    }
+  })}
+`;
 
 export default ButtonComponents;
