@@ -34,12 +34,10 @@ const Login = () => {
       borderColor='primary.main'
     >
       <Image src={logo} atl='logo' width={235.34} height={60} mx={106} my={40} />
-      {isError ? (
+      {isError && (
         <Row position='absolute' color='red' mt={110}>
           <Text>E-mail e/ou senha inválido(s)</Text>
         </Row>
-      ) : (
-        ''
       )}
       <Input
         name='email'
@@ -61,7 +59,7 @@ const Login = () => {
         error={errors.password?.message}
         variant='primary'
       />
-      <Button type='submit' width={384} mb={32}>Entrar</Button>
+      <Button type='submit' width={384} mb={32}> Entrar </Button>
     </Column>
   );
 };
