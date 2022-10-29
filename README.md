@@ -38,10 +38,9 @@ npm run start
 |   ├── /helpers
 |   ├── /providers
 |   ├── /screens
-|   |   ├── /AddNavers
-|   |   ├── /EditNavers
-|   |   ├── /Home
 |   |   ├── /Login
+|   |   ├── /NaverForm
+|   |   ├── /NaversList
 |   ├── /services
 |   ├── /theme
 ```
